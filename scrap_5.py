@@ -8,8 +8,8 @@ page1 = requests.get(URL1)
 
 soup = BeautifulSoup(page.content, "html.parser")
 soup1 = BeautifulSoup(page1.content, "html.parser")
-
 result = soup.find(id="ResultsContainer")
+
 job_elements = result.find_all("div", class_="card-content")
 
 python_jobs = result.find_all(
@@ -33,7 +33,7 @@ for job_element in python_job_elements:
 
     links = job_element.find_all("a")
     links = links[1]
-    link_url = links['href']
+    link_url = links['href']  # job_element.find_all("a")[1]['href']
     print(f"Apply here: {link_url}\n")
     '''for link in links:
         link_url = link["href"]
